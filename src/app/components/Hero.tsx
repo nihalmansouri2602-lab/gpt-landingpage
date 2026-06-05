@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Sparkles, Check, Users, Code, Activity } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 interface HeroProps {
   onOpenAuthWithEmail: (email: string) => void;
@@ -26,15 +26,12 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
     setError('');
     setSubscribed(true);
     
-    // Smooth hook to prompt auth modal on get started
     setTimeout(() => {
       onOpenAuthWithEmail(email);
       setSubscribed(false);
       setEmail('');
     }, 1200);
   };
-
-  const usersCount = 1864;
 
   const avatars = [
     { name: 'Alice', bg: 'bg-gradient-to-r from-cyan-400 to-blue-500', initial: 'A' },
@@ -46,21 +43,16 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
 
   return (
     <section id="home" className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#040C18]">
-      {/* Absolute Ambient Background Lights */}
       <div className="absolute top-1/10 -left-20 h-[500px] w-[500px] rounded-full bg-indigo-950/45 blur-[120px] pointer-events-none animate-pulse" />
       <div className="absolute bottom-1/4 right-0 h-[600px] w-[500px] rounded-full bg-fuchsia-950/30 blur-[130px] pointer-events-none" />
       <div className="absolute -top-36 right-1/4 h-[400px] w-[400px] rounded-full bg-[#ff4820]/10 blur-[130px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
 
-      {/* Grid Pattern Accents */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#161619_1px,transparent_1px),linear-gradient(to_bottom,#161619_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column Text & Action */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            
-            {/* Giant Title Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +67,6 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
               </span>
             </motion.h1>
 
-            {/* Description Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,7 +76,6 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
               Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy alteration boisterous the attachment. Party we years to order allow asked of.
             </motion.p>
 
-            {/* Email Form Action */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -139,7 +129,6 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
               )}
             </motion.div>
 
-            {/* Simulated Live User Count / Feedback */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -169,14 +158,10 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
 
           </div>
 
-          {/* Right Column Abstract Logo Visual */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            
-            {/* Visual pulsing glowing portal rings achter de visual */}
             <div className="absolute h-72 w-72 md:h-96 md:w-96 rounded-full bg-gradient-to-tr from-indigo-500/10 via-zinc-900/10 to-indigo-700/10 blur-2xl animate-pulse pointer-events-none" />
             <div className="absolute h-56 w-56 rounded-full border border-dashed border-zinc-800 pointer-events-none anim-spin" style={{ animationDuration: '40s' }} />
             
-            {/* High-fidelity Generated Image Canvas */}
             <motion.div
               animate={{
                 y: [0, -10, 0],
@@ -188,7 +173,6 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
               }}
               className="relative w-full max-w-[420px] z-10"
             >
-             
               <img
                 src="/images/HeaderIllustration.png"
                 alt="OpenAI Cyber Face Mask"
@@ -196,7 +180,6 @@ export default function Hero({ onOpenAuthWithEmail, currentUser }: HeroProps) {
                 referrerPolicy="no-referrer"
               />
             </motion.div>
-
           </div>
 
         </div>
