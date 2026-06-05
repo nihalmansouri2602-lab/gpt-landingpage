@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, User, LogOut, ArrowUpRight } from 'lucide-react';
+import { Menu, X, User, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
@@ -13,8 +13,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // --- FIGMA ADJUSTABLE DESKTOP PARAMETERS ---
-  // You can manually change the 'left' and 'width' of each link directly in this array!
   const navLinks = [
     { name: 'Home', id: 'home', left: 267, width: 50 },
     { name: 'What is GPT', id: 'what-is-gpt', left: 371, width: 112 },
@@ -27,7 +25,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      // Simple intersection-like indicator
       const scrollPosition = window.scrollY + 180;
       for (const link of navLinks) {
         const el = document.getElementById(link.id);
@@ -49,7 +46,7 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const topOffset = 80; // height of sticking navbar
+      const topOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - topOffset;
 
@@ -69,33 +66,26 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
           : 'bg-transparent py-4'
       }`}
     >
-      {/* 
-        DESKTOP LAYOUT (Figma Pixel Perfect Simulation Frame)
-        Fits exactly inside a 1440px wide canvas, centered on the screen.
-      */}
       <div className="hidden lg:block relative mx-auto w-[1440px] h-[130px] select-none overflow-visible">
-        
-        {/* Figma Bounding Box representation of Main Navigation */}
         <div 
           className="absolute rounded-[5px] border border-zinc-800/20 bg-transparent pointer-events-none"
           style={{
             width: '1169.34px',
             height: '58px',
-            top: scrolled ? '15px' : '55px', // slide up gently on scroll
+            top: scrolled ? '15px' : '55px',
             left: '135.66px',
             opacity: 1,
             transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)'
           }}
         />
 
-        {/* Logo (simple GPT-3 text based on specified properties) */}
         <div 
           onClick={() => handleSmoothScroll('home')}
           className="absolute cursor-pointer text-white font-display font-extrabold text-[#fff] tracking-wide flex items-center hover:opacity-85 transition-all duration-350"
           style={{
             width: '62.56px',
             height: '16.02px',
-            top: scrolled ? '34.29px' : '74.29px', // adjust coordinate for scroll slide
+            top: scrolled ? '34.29px' : '74.29px',
             left: '135.66px',
             opacity: 1,
             fontSize: '18px',
@@ -105,7 +95,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
           GPT-3
         </div>
 
-        {/* Desktop Custom Nav Links (mapped with explicit widths & left offsets) */}
         {navLinks.map((link) => (
           <button
             key={link.id}
@@ -128,7 +117,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
           </button>
         ))}
 
-        {/* User / Authentication Actions */}
         <div 
           className="absolute origin-right transition-all duration-300"
           style={{
@@ -156,22 +144,19 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
             </div>
           ) : (
             <div className="flex items-center relative overflow-visible h-full w-[235px]">
-              
-              {/* Sign In Link (Manual left positioning & width) */}
               <button
                 onClick={() => onOpenAuth('signin')}
                 className="absolute text-sm font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer flex items-center justify-center font-display"
                 style={{
                   width: '57px',
                   height: '25px',
-                  top: scrolled ? '16px' : '16px', // local absolute centered positioning
-                  left: '0px', // local offset 
+                  top: '16px',
+                  left: '0px', 
                 }}
               >
                 Sign In
               </button>
 
-              {/* Sign Up Button (With exact properties: bg #FF4820, border-radius 5px) */}
               <button
                 onClick={() => onOpenAuth('signup')}
                 className="absolute text-white font-semibold text-xs transition-all duration-300 shadow-lg hover:brightness-110 active:scale-95 flex items-center justify-center cursor-pointer"
@@ -180,23 +165,18 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
                   borderRadius: '5px',
                   width: '152px',
                   height: '58px',
-                  top: '0px', // local absolute outer container top
-                  left: '83px', // local offset (1153px - 1070px = 83px offset)
+                  top: '0px',
+                  left: '83px',
                 }}
               >
                 Sign Up
               </button>
-
             </div>
           )}
         </div>
       </div>
 
-      {/* 
-        RESPONSIVE CONTAINER (For screens below lg/mobile/tablet)
-      */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between lg:hidden">
-        {/* Logo / Brand */}
         <div 
           onClick={() => handleSmoothScroll('home')}
           className="flex items-center gap-1.5 cursor-pointer group"
@@ -206,7 +186,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
           </span>
         </div>
 
-        {/* Mobile Actions and Burger */}
         <div className="flex items-center gap-4">
           {currentUser ? (
             <div className="flex items-center gap-2 bg-[#161619] border border-zinc-800 px-3 py-1 rounded-full text-xs text-indigo-400 font-mono">
@@ -241,7 +220,6 @@ export default function Navbar({ onOpenAuth, currentUser, onSignOut }: NavbarPro
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
