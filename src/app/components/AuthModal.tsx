@@ -263,14 +263,12 @@ export default function AuthModal({ isOpen, onClose, initialTab, onAuthSuccess }
                     )}
                   </button>
 
-                  {/* Divider */}
                   <div className="relative flex items-center gap-3 my-1">
                     <div className="flex-1 h-px bg-zinc-800" />
                     <span className="text-[10px] text-zinc-600 font-mono">OR</span>
                     <div className="flex-1 h-px bg-zinc-800" />
                   </div>
 
-                  {/* Google Sign In */}
                   <button
                     type="button"
                     onClick={handleGoogleSignIn}
