@@ -216,7 +216,7 @@ export default function AuthModal({ isOpen, onClose, initialTab, onAuthSuccess }
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="developers@openai.com"
+                        placeholder="developers@gmail.com"
                         className="w-full bg-[#09090b] text-white rounded-lg pl-10 pr-4 py-2 text-sm border border-zinc-800 focus:outline-none focus:border-indigo-500 placeholder-zinc-600 transition-all font-sans"
                       />
                     </div>
@@ -259,7 +259,7 @@ export default function AuthModal({ isOpen, onClose, initialTab, onAuthSuccess }
                     {isLoading ? (
                       <div className="h-5 w-5 animate-spin rounded-full border-2 border-black border-t-transparent" />
                     ) : (
-                      <span>{tab === 'signin' ? 'Verify Credentials' : 'Provision Key'}</span>
+                      <span>{tab === 'signin' ? 'Verify Credentials' : 'Create Account'}</span>
                     )}
                   </button>
 
