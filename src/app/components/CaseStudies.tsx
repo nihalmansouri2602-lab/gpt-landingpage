@@ -22,7 +22,6 @@ export default function CaseStudies() {
 
   return (
     <section id="case-studies" className="relative py-24 overflow-hidden bg-[#040C18]">
-      {/* Absolute Ambient Background Lights for continuous glowing gradient */}
       <div className="absolute top-1/3 -left-48 h-[600px] w-[500px] rounded-full bg-[#ff4820]/5 blur-[140px] pointer-events-none animate-pulse" />
       <div className="absolute bottom-10 right-0 h-[450px] w-[450px] rounded-full bg-indigo-950/25 blur-[120px] pointer-events-none" />
       <div className="absolute top-10 right-1/4 h-[300px] w-[300px] rounded-full bg-fuchsia-950/20 blur-[100px] pointer-events-none" />
@@ -30,7 +29,6 @@ export default function CaseStudies() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column Heading */}
           <div className="lg:col-span-5 text-left flex flex-col justify-between h-full">
             <div>
               <motion.h2 
@@ -60,7 +58,6 @@ export default function CaseStudies() {
             </div>
           </div>
 
-          {/* Right Column Features Stack */}
           <div className="lg:col-span-7 space-y-10 sm:space-y-12">
             {features.map((item, index) => (
               <motion.div
@@ -71,7 +68,6 @@ export default function CaseStudies() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start text-left border-b border-zinc-800/20 pb-8 sm:pb-10 last:border-none"
               >
-                {/* Title and Top line */}
                 <div className="sm:col-span-5">
                   <div className="h-[2px] w-10 bg-gradient-to-r from-orange-500 to-[#ff4820] mb-3" />
                   <h3 className="text-sm sm:text-base font-extrabold font-display text-white tracking-tight leading-snug">
@@ -79,7 +75,6 @@ export default function CaseStudies() {
                   </h3>
                 </div>
 
-                {/* Description */}
                 <div className="sm:col-span-7">
                   <p className="text-xs sm:text-sm text-[#81AFDD] leading-relaxed font-light font-sans">
                     {item.description}
