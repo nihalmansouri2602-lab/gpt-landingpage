@@ -1,4 +1,4 @@
-import { Sparkles, Mail, Send, Check } from 'lucide-react';
+import { Sparkles, Send, Check } from 'lucide-react';
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
@@ -46,13 +46,11 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#031B34] border-t border-zinc-800 pt-20 pb-10 overflow-hidden">
-      {/* Absolute Ambient Background Lights for closing footer canvas */}
       <div className="absolute top-10 right-10 h-[500px] w-[500px] rounded-full bg-fuchsia-950/20 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-[#ff4820]/5 blur-[110px] pointer-events-none animate-pulse" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         
-        {/* Upper Big Call-to-Action Callout */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight text-transparent bg-clip-text mb-12 tracking-tight"
@@ -69,10 +67,8 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Footer Navigation Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
-          {/* Column Logo & Newsletter */}
           <div className="md:col-span-5 text-left">
             <div className="flex items-center gap-2 mb-6 cursor-pointer" onClick={(e) => handleSmoothScroll('home', e)}>
               <div className="h-8 w-8 bg-[#082C52] border border-zinc-700 rounded flex items-center justify-center">
@@ -85,7 +81,6 @@ export default function Footer() {
               Crechterwoord K12 182 DK Alknjkcb, All Rights Reserved.
             </p>
 
-            {/* In-footer simple newsletter block */}
             <form onSubmit={handleSubscribe} className="flex max-w-xs bg-[#031B34] rounded-none border border-zinc-700 overflow-hidden">
               <input
                 type="email"
@@ -106,7 +101,6 @@ export default function Footer() {
             </form>
           </div>
 
-          {/* Links Column 1 */}
           <div className="md:col-span-2 md:col-start-7 text-left">
             <h4 className="text-xs font-mono font-bold text-white tracking-widest uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF4820] to-fuchsia-400">Links</h4>
             <ul className="space-y-4 text-xs font-medium text-[#81AFDD]">
@@ -120,7 +114,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Links Column 2 */}
           <div className="md:col-span-2 text-left">
             <h4 className="text-xs font-mono font-bold text-white tracking-widest uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF4820] to-fuchsia-400">Company</h4>
             <ul className="space-y-4 text-xs font-medium text-[#81AFDD]">
@@ -134,7 +127,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details Column */}
           <div className="md:col-span-2 text-left">
             <h4 className="text-xs font-mono font-bold text-white tracking-widest uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FF4820] to-fuchsia-400">Get in touch</h4>
             <address className="not-italic space-y-4 text-xs font-medium text-[#81AFDD]">
