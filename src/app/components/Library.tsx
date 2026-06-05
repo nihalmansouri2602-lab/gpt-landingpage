@@ -27,7 +27,6 @@ export default function Library() {
 
   const categories: ('All' | 'Research' | 'API' | 'Guides')[] = ['All', 'Research', 'API', 'Guides'];
 
-  // Filter strategy
   const filteredItems = LIBRARY_ITEMS.filter((item) => {
     const matchesCategory = activeCategory === 'All' || item.category === activeCategory;
     const matchesSearch =
@@ -58,14 +57,12 @@ export default function Library() {
 
   return (
     <section id="library" className="relative py-24 overflow-hidden bg-[#040C18]">
-      {/* Absolute Ambient Background Lights for continuous gradient coloring */}
       <div className="absolute top-10 left-0 h-[500px] w-[500px] rounded-full bg-[#ff4820]/5 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-indigo-950/30 blur-[135px] pointer-events-none animate-pulse" />
       <div className="absolute top-1/2 left-1/3 h-[400px] w-[400px] rounded-full bg-fuchsia-950/20 blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         
-        {/* Left Aligned Huge Section Heading */}
         <div className="text-left max-w-3xl mb-16">
           <h2 className="text-3xl sm:text-5xl lg:text-6.5xl font-extrabold font-display leading-[1.1] tracking-tight text-white">
             <span
@@ -78,10 +75,8 @@ export default function Library() {
           </h2>
         </div>
 
-        {/* Resources Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-2">
           
-          {/* Main Tall Left Card (Article 1 from LIBRARY_ITEMS) */}
           {LIBRARY_ITEMS[0] && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -121,17 +116,15 @@ export default function Library() {
             </motion.div>
           )}
 
-          {/* Right 2x2 Grid of Smaller Cards (Articles 2, 3, 4, 5) */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8 items-stretch">
             {LIBRARY_ITEMS.slice(1, 5).map((item, idx) => {
-              // Unique aesthetic graphic generators for each smaller card
               const images = [
-  '/images/Rectangle2.png',
-  '/images/Rectangle3.png',
-  '/images/Rectangle4.png',
-  '/images/Rectangle5.png',
-];
-const image = images[idx] || '/images/Rectangle2.png';
+                '/images/Rectangle2.png',
+                '/images/Rectangle3.png',
+                '/images/Rectangle4.png',
+                '/images/Rectangle5.png',
+              ];
+              const image = images[idx] || '/images/Rectangle2.png';
 
               return (
                 <motion.div
@@ -179,12 +172,10 @@ const image = images[idx] || '/images/Rectangle2.png';
 
       </div>
 
-      {/* Reader Modal Overlay */}
       <AnimatePresence>
         {selectedArticle && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -193,7 +184,6 @@ const image = images[idx] || '/images/Rectangle2.png';
               className="fixed inset-0 bg-black/85 backdrop-blur-md"
             />
 
-            {/* Modal Container */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -223,7 +213,6 @@ const image = images[idx] || '/images/Rectangle2.png';
                 {selectedArticle.title}
               </h3>
 
-              {/* Simulated Article Body Markdown Markup */}
               <div className="text-left space-y-4 max-h-[350px] overflow-y-auto pr-2 text-sky-200 text-xs sm:text-sm leading-relaxed font-sans scrollbar-thin">
                 <p className="font-semibold text-[#ff4820] flex items-center gap-1 font-mono text-xs">
                   <Sparkles size={14} /> SUMMARY OF KEY CONVERGENCE
@@ -259,7 +248,6 @@ const image = images[idx] || '/images/Rectangle2.png';
                 </p>
               </div>
 
-              {/* Modal controls footer */}
               <div className="flex items-center justify-between mt-8 pt-5 border-t border-zinc-700 text-xs text-sky-305">
                 <div className="flex items-center gap-1">
                   <MessageSquare size={14} />
